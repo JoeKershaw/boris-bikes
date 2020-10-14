@@ -1,9 +1,13 @@
 require 'bike'
 
 class DockingStation
-  attr_reader :bike
+  attr_accessor :bike
   def release_bike
-    return Bike.new
+    if @bike == nil
+      raise("ERRRRRRROOORRRRRR")
+    else
+      @bike
+    end
   end
   def dock_bike(bike)
     @bike = bike
