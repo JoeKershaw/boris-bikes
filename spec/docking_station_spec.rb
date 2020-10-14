@@ -11,4 +11,13 @@ RSpec.describe DockingStation do
     bike = subject.release_bike
     expect(bike.working?).to eq true
   end
+  it '#dock_bike: docks bike at station' do
+    bike = subject.release_bike
+    expect(subject.dock_bike(bike)).to eq "Bike docked!"
+  end
+  it '#contains_bike: checks if there is a bike at the dockingstation' do
+    bike = subject.release_bike
+    subject.dock_bike(bike)
+    expect(subject.contains_bike(bike)).to eq bike
+  end
 end
