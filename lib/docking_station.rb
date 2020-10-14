@@ -1,17 +1,11 @@
 require 'bike'
 
 class DockingStation
-  def initialize()
-    @docked_bikes = []
-  end
+  attr_reader :bike
   def release_bike
     return Bike.new
   end
   def dock_bike(bike)
-    @docked_bikes << bike
-    "Bike docked!"
-  end
-  def contains_bike(bike)
-  @docked_bikes.include?(bike) ? bike : "Your bike isn't here!"
+    @bike = bike
   end
 end
