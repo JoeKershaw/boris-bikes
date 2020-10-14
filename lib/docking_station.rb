@@ -10,8 +10,12 @@ class DockingStation
     @bikes.pop
   end
   def dock_bike(bike)
-    raise("Docking Station is full!") if @bikes.length >= 20
+    raise("Docking Station is full!") if self.full?
     @bikes << bike
     bike
+  end
+  private
+  def full?
+    @bikes.length >= 20 ? true : false
   end
 end

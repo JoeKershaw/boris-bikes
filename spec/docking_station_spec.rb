@@ -36,4 +36,5 @@ RSpec.describe DockingStation do
     subject.dock_bike(bike)
     expect(subject.bikes[-1]).to eq bike
   end
+
 end
