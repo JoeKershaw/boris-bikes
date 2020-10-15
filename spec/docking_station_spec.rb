@@ -16,7 +16,6 @@ RSpec.describe DockingStation do
     it 'docking station releases bike' do
       subject.dock_bike(Bike.new)
       expect(subject.release_bike).to be_instance_of Bike
-      # count bike goes down by one
     end
     it 'releases a working bike' do
       bike = Bike.new
