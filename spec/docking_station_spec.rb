@@ -3,11 +3,19 @@ require 'bike'
 
 
 RSpec.describe DockingStation do
+  describe '#initialize' do
+    it 'takes a non-default capacity' do
+      big_docking_station = DockingStation.new(30)
+      expect(big_docking_station.capacity).to eq 30
+    end
+    it 'keeps the default capacity' do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
+  end
   describe '#release_bike' do
     it 'docking station releases bike' do
       subject.dock_bike(Bike.new)
       expect(subject.release_bike).to be_instance_of Bike
-      # count bike goes down by one
     end
     it 'releases a working bike' do
       bike = Bike.new
