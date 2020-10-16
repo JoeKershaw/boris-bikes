@@ -15,10 +15,12 @@ RSpec.describe Garage do
   end
   describe '#release_bike' do
     it 'releases a bike from the garage' do
+      allow(bike).to receive(:working?).and_return true
       subject.accept_bike(bike)
       expect(subject.release_bike).to eq bike
     end
     it 'reduces the storage of the garage' do
+      allow(bike).to receive(:working?).and_return true
       subject.accept_bike(bike)
       subject.release_bike
       expect(subject.storage.length).to eq 0
