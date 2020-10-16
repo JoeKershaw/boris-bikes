@@ -9,4 +9,9 @@ RSpec.describe Bike do
     subject.report
     expect(subject.working?).to eq false
   end
+  it '#fix' do
+    subject.report
+    subject.fix
+    expect(subject.working?).to eq true
+  end
 end

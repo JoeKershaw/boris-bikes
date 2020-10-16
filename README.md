@@ -75,3 +75,27 @@ dockingstation   ---->  release working bikes only
 As a maintainer of the system,
 So that I can manage broken bikes and not disappoint users,
 I'd like docking stations to accept returning bikes (broken or not).
+
+```
+Don't need.
+```
+
+As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like vans to take broken bikes from docking stations and deliver them to garages to be fixed.
+
+```
+OBJECT                  MESSAGE
+docking_station -----> remove broken bikes
+bike ------>  garaged(bike)
+```
+
+As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like vans to collect working bikes from garages and distribute them to docking stations.
+
+```
+OBJECT                  MESSAGE
+garage -----> remove working bikes
+bike ------>  van(bike)
+```

@@ -1,5 +1,4 @@
 require 'docking_station'
-require 'bike'
 
 
 RSpec.describe DockingStation do
