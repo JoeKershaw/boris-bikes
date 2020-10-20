@@ -1,4 +1,5 @@
 require './lib/bike.rb'
+require './lib/van.rb'
 
 class DockingStation
   attr_accessor :bikes
@@ -7,18 +8,29 @@ class DockingStation
   def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
+    @van = Van.new
   end
   def release_bike
     raise("No Bikes!") if @bikes.empty?
     bike = @bikes.pop
-    raise("This bike is broken!") if !bike.working?
     bike
   end
-  def dock_bike(bike)
+
+  def accept_bike(bike)
     raise("Docking Station is full!") if full?
-    @bikes << bike
-    bike
+    if !bike.working?
+      retire_bike(bike)
+    else
+      @bikes << bike
+    end
   end
+
+  def retire_bike(bike)
+    p "taking bike for a fix"
+    @van.collect_bike(bike, self)
+    p "bike is back"
+  end
+
   private
   def full?
     @bikes.length >= DEFAULT_CAPACITY
