@@ -1,25 +1,27 @@
+require './lib/container'
 class Garage
+  include Container
 
-attr_reader :storage
-  def initialize
-  end
   def accept_bike(bike)
+    @bikes << bike
     p "garage accepted bike"
     sleep(0.3)
-    apply_knowledge(bike)
+    apply_knowledge
   end
-  def release_bike(bike)
+
+  def release_bike
     p "garage released bike"
-    bike
+    @bikes.pop
   end
-  def apply_knowledge(bike)
-    bike.fix
+
+  def apply_knowledge
+    @bikes[0].fix
     p "bike is getting knowledge applied"
-    10.times do
+    4.times do
       print "."
       sleep(0.3)
     end
     puts
-    release_bike(bike)
+    release_bike
   end
 end

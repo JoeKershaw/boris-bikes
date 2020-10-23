@@ -1,9 +1,9 @@
 require './lib/garage'
+require './lib/container'
 
 class Van
   def initialize
     @docking_stations = []
-    @bikes  = []
     @garage = Garage.new
     @docking_station = false
   end

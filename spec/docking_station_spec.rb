@@ -41,11 +41,11 @@ RSpec.describe DockingStation do
       allow(bike).to receive(:working?).and_return true
       expect{ subject.accept_bike(bike) }.to change{ subject.bikes.length }.by 1
     end
-    it 'accepts any bike, broken or not' do
-      allow(bike).to receive(:working?).and_return false
-      allow(bike).to receive(:fix).and_return true
-      expect{ subject.accept_bike(bike) }.to change{ subject.bikes.length }.by 0
-    end
+    # it 'accepts any bike, broken or not' do
+    #   allow(bike).to receive(:working?).and_return false
+    #   allow(bike).to receive(:fix).and_return true
+    #   expect{ subject.accept_bike(bike) }.to change{ subject.bikes.length }.by 0
+    # end
   end
 
   it '.bike: checks if the bike is at the dockingstation' do
